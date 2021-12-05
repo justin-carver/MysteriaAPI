@@ -1,4 +1,4 @@
-let entity = require('./entity.js');
+const entity = require('./entity.js');
 
 const entityLimit = 10;
 let entities = [];
@@ -32,6 +32,7 @@ const generateNPCs = () => {
         console.log(`Generated entity ${e.entityFirstName} ${e.entityLastName}...`);
     }
     console.log(entities[4]);
+    entities[0].speak();
 }
 
 const init = () => {
