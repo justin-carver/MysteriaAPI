@@ -1,26 +1,13 @@
-const entity = require('./entity.js');
+const entity = require('./entity');
+const helper = require('./helper');
+const world = require('./world');
 
-const entityLimit = 10;
+const entityLimit = 100;
 let entities = [];
 
-// For timestamp padding
-const pad = (num, size) => {
-    num = num.toString();
-    while (num.length < size) num = "0" + num;
-    return num;
-}
-
-const generateTimestamp = (brackets = true) => {
-    let currentDate = new Date();
-    if (brackets) {
-        return timestamp = `? [${pad(currentDate.getHours(), 2)}:${pad(currentDate.getMinutes(), 2)}]:`;
-    } else {
-        return timestamp = `${pad(currentDate.getHours(), 2)}:${pad(currentDate.getMinutes(), 2)}`;
-    }
-}
-
 const generateNPCs = () => {
-    console.log(generateTimestamp(), 'Beginning entity generation process...');
+    helper.startElapsedTime();
+    console.log(helper.generateTimestamp(), 'Beginning entity generation process...');
     let id = 0;
     for (let x = 0; x < entityLimit; x++) {
         let e = entity();
@@ -31,12 +18,13 @@ const generateNPCs = () => {
         entities.push(e);
         console.log(`Generated entity ${e.entityFirstName} ${e.entityLastName}...`);
     }
+    helper.endElapsedTime();
     console.log(entities[4]);
-    entities[0].speak();
 }
 
 const init = () => {
     generateNPCs();
+    world.generateWorld();
 }
 
 
