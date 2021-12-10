@@ -25,6 +25,7 @@ const generateNPCs = () => {
 const init = () => {
     generateNPCs();
     world.generateWorld();
+    console.log(entities);
 }
 
 
@@ -36,14 +37,14 @@ init();
 // Express is currently installed,
 // uncomment this to begin the server.
 
-const express = require('express')
-const app = express()
-const port = 3000
+// const express = require('express')
+// const app = express()
+// const port = 3000
 
-app.get('/entities', (req, res) => {
-  res.send(entities)
-})
+// app.get('/entities', (req, res) => {
+//   res.send(entities)
+// })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
