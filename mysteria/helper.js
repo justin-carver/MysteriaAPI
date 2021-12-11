@@ -10,7 +10,7 @@ const endElapsedTime = () => {
         let timeDiff = endTime - startTime; // in milliseconds
         timeDiff /= 1000;
         let seconds = timeDiff;
-        return console.log('! [Action completed in ', seconds, ' seconds.]');
+        return console.log(generateTimestamp(), 'Action completed in ', seconds, ' seconds.');
     }
 }
 
@@ -30,4 +30,4 @@ const pad = (num, size) => {
     return num;
 }
 
-module.exports = {generateTimestamp, pad, startElapsedTime, endElapsedTime}
+module.exports = {generateTimestamp, pad, startElapsedTime, endElapsedTime};  
