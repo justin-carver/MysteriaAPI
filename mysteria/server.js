@@ -28,10 +28,6 @@ const init = () => {
     console.log(helper.generateTimestamp(), 'Initializing server...');
     generateNPCs();
     world.generateWorld();
-    // Iterate over every entity.
-    for (let x = 0; x < Object.keys(entities).length; x++) {
-        entities[x].entityInit(true);
-    }
     console.log(helper.generateTimestamp(), `MysteriaAPI Server version ${version} initialized!`);
 }
 
