@@ -32,7 +32,9 @@ const pad = (num, size) => {
     return num;
 }
 
-// This takes in a normal .txt file
+const JSONFileToObj = path => JSON.parse(fs.readFileSync(path, 'utf8'));
+
+// This takes in a normal .txt file, reads line-by-line.
 const fileToArray = (path) => {
     let arr = [];
     const data = fs.readFileSync(path, 'utf8');
@@ -41,8 +43,5 @@ const fileToArray = (path) => {
     });
     return arr;
 }
-
-// This is specific to JSON
-const JSONFileToObj = path => JSON.parse(fs.readFileSync(path, 'utf8'));
 
 module.exports = {generateTimestamp, pad, startElapsedTime, endElapsedTime, fileToArray, JSONFileToObj};  

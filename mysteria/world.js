@@ -1,16 +1,17 @@
 const helper = require('./helper');
 
 const world = [];
-// Generate more province names
-let provinceNames = ['Kingdom of Swalthallow'];
 
+let provinceNames = helper.JSONFileToObj('data/province.json')['generators']['prefix'];
+
+// TODO: Rewrite province generation using data/province.json
 const province = () => {
     const generateLandsize = () => { return Math.floor(Math.random() * 10) }
     cords = {
         x : 0,
         y : 0
     };
-    provinceName = provinceNames[0];
+    provinceName = provinceNames[Math.floor(Math.random() * provinceNames.length)];
     districtCount = generateLandsize();
     return {
         provinceName,

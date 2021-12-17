@@ -1,0 +1,13 @@
+{
+    "generators" : {
+        "prefix" : ["Kingdom", "Empire", "Realm", "Republic"]
+    },
+    "template" : {
+        "provinceName" : "",
+        "districtCount" : 0,
+        "cords" : {
+            "x" : 0,
+            "y" : 0
+        }
+    }
+}

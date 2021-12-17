@@ -2,14 +2,24 @@ const helper = require('./helper.js');
 const rName = require('random-name');
 const dm = require('./dungeon-master');
 
-let classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
+// TODO: Move races to data/races.json, fill out more appropriate information.
+let classes = helper.JSONFileToObj('data/classes.json');
 let races = ['Human', 'Elf', 'Dwarf', 'Orc', 'Gnome', 'Halfing', 'Kobold', 'Goblin', 'Treant', 'Fae', 'Lizardfolk', 'Dragonkin'];
 let alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'];
 
+// TODO: Fix issues with class generation not giving appropriate class based on stats.
+// TODO: Extend this function to generate information for creatures and monsters.
 const entity = () => {
 
-    // TODO: Fix issues with class generation not giving appropriate class based on stats.
-    // ----> Also make this extendable to monsters and creatures.
+    /**
+     *  Fixing Entity Class Generation:
+     *  1. Generate stats like normal for each entity.
+     *  2. Compare highest (2) attributes to list of primaryStats from data/classes.json. (sorted)
+     *  3. *Randomly* choose a class that matches the appropriate attributes for efficient class selection.
+     *      -> May need random-seed implemented first.
+     *  4. Automatically assign remaining attributes. (unsorted)
+     */
+
     const generateEntityClass = (stats) => {
         if (/* entityType === 'NPC' */ true) { // Resolve this later
             if (stats['Strength'] >= stats['Constitution']) {

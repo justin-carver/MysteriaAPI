@@ -1,3 +1,6 @@
+// TODO: Implement entity states.
+// TODO: Once states are implemented, introduce server tick sytstem.
+
 const entity = require('./entity');
 const helper = require('./helper');
 const world = require('./world');

@@ -9,7 +9,7 @@ This project is the culmination of using Express, Node, and other APIs to genera
 ## The Adventure
 There are various properties that can be extracted from this, please consult the list below: 
 
-## //TODOs:
+## Project Needs
 - [ ] Make successful GET requests against server.
 - [ ] Migrate generated instance information to MongoDB.
 - [ ] Implement [yargs](https://yargs.js.org/) for more complex world generation or queries.
@@ -20,13 +20,15 @@ While I am making this project free and open-source, this is also a learning exp
 - HTTP Requests
 - Express
 - Node
-- JSDoc / Technical Documentation
 - JSON Manipulation
-- State Machines
-- GitHub Copilot*
+- Finite State Machines
+- ~~JSDoc / Technical Documentation~~ (**Soon!**)
 
 ### Contributions
 This project has been made with love by Justin Carver. PR's welcome! All licenses by original owners and authors remain in place. The **log.txt** file within the */logs* folder shows a detailed output of the self-hosted server initialization process.
-
-#### *GitHub Copilot
-Every piece of logic and code was written by me, but I spent some time with the GitHub Copilot beta coming up with ways to generate unique data structures or write functions templates much more quickly than I can. Unfortunately due to it's rough beta state, it can only do so much.
+___
+## Ideas
+This is just a small list of different ideas I'd like to pursue with this API:
+ - Generate front-end to track all server data happening within the 'world'.
+ - Create a betting website with fake currency to 'nudge' entity actions, similar to Twitch Plays Pokemon.
+ - Run through multiple iterations of the world history, use ML to 'evolve' entity actions to make better choices.

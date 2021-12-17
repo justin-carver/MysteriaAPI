@@ -1,3 +1,5 @@
+// TODO: Implement [`npm install random-seed`](https://www.npmjs.com/package/random-seed) for all randomness, add seeding.
+
 const helper = require('./helper');
 
 const rollDice = (dice) => {
