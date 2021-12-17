@@ -28,7 +28,7 @@ const generateWorld = () => {
             world.push(p);
         }
     }
-    // console.log(world);
+    console.log(world);
 }
 
 module.exports = { generateWorld } 

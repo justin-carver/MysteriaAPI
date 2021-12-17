@@ -1,7 +1,6 @@
 const entity = require('./entity');
 const helper = require('./helper');
 const world = require('./world');
-const dm = require('./dungeon-master');
 const e = require('express');
 const version = '0.0.1';
 

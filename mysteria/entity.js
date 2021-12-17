@@ -9,6 +9,7 @@ let alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good',
 const entity = () => {
 
     // TODO: Fix issues with class generation not giving appropriate class based on stats.
+    // ----> Also make this extendable to monsters and creatures.
     const generateEntityClass = (stats) => {
         if (/* entityType === 'NPC' */ true) { // Resolve this later
             if (stats['Strength'] >= stats['Constitution']) {
@@ -76,153 +77,8 @@ const entity = () => {
     entityType = 'NPC';
     entityAlignment = alignment[Math.floor(Math.random() * alignment.length)];
     entityHitPoints = 100; // Change later
-    entityFlags = ['HUMAN', 'FLESHY', 'SOUL']; // Can be configured later
-    entitySkills = {
-        'Acrobatics': {
-            'Name': 'Acrobatics',
-            'Ability': 'Dexterity',
-            'Modifier': 'Dexterity Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Animal Handling': {
-            'Name': 'Animal Handling',
-            'Ability': 'Wisdom',
-            'Modifier': 'Wisdom Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },  
-        'Arcana': {
-            'Name': 'Arcana',
-            'Ability': 'Intelligence',
-            'Modifier': 'Intelligence Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Athletics': {
-            'Name': 'Athletics',
-            'Ability': 'Strength',
-            'Modifier': 'Strength Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Deception': {  
-            'Name': 'Deception',
-            'Ability': 'Charisma',
-            'Modifier': 'Charisma Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'History': {
-            'Name': 'History',
-            'Ability': 'Intelligence',
-            'Modifier': 'Intelligence Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Insight': {
-            'Name': 'Insight',  
-            'Ability': 'Wisdom',
-            'Modifier': 'Wisdom Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Intimidation': {
-            'Name': 'Intimidation',
-            'Ability': 'Charisma',
-            'Modifier': 'Charisma Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },  
-        'Investigation': {
-            'Name': 'Investigation',
-            'Ability': 'Intelligence',
-            'Modifier': 'Intelligence Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Medicine': {
-            'Name': 'Medicine',
-            'Ability': 'Wisdom',
-            'Modifier': 'Wisdom Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Nature': {
-            'Name': 'Nature',
-            'Ability': 'Intelligence',
-            'Modifier': 'Intelligence Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Perception': {
-            'Name': 'Perception',
-            'Ability': 'Wisdom',
-            'Modifier': 'Wisdom Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'    
-        },
-        'Performance': {
-            'Name': 'Performance',
-            'Ability': 'Charisma',
-            'Modifier': 'Charisma Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Persuasion': {
-            'Name': 'Persuasion',
-            'Ability': 'Charisma',
-            'Modifier': 'Charisma Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Religion': {
-            'Name': 'Religion',
-            'Ability': 'Intelligence',
-            'Modifier': 'Intelligence Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Sleight of Hand': {
-            'Name': 'Sleight of Hand',
-            'Ability': 'Dexterity',
-            'Modifier': 'Dexterity Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Stealth': {
-            'Name': 'Stealth',
-            'Ability': 'Dexterity',
-            'Modifier': 'Dexterity Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        },
-        'Survival': {
-            'Name': 'Survival',
-            'Ability': 'Wisdom',
-            'Modifier': 'Wisdom Modifier',
-            'Proficiency': 'Proficiency',
-            'Misc': 'Misc',
-            'Total': 'Total'
-        }
-    }
+    entityFlags = ['HUMAN', 'FLESHY', 'SOUL']; // Default
+    entitySkills = helper.JSONFileToObj('data/skills.json');
 
     const entityInit = (verbose = false) => {
         if (verbose) {

@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 let startTime, endTime;
 
 const startElapsedTime = () => {
@@ -30,4 +32,17 @@ const pad = (num, size) => {
     return num;
 }
 
-module.exports = {generateTimestamp, pad, startElapsedTime, endElapsedTime};  
+// This takes in a normal .txt file
+const fileToArray = (path) => {
+    let arr = [];
+    const data = fs.readFileSync(path, 'utf8');
+    data.split(/\r?\n/).forEach( line => {
+        arr.pop(line);
+    });
+    return arr;
+}
+
+// This is specific to JSON
+const JSONFileToObj = path => JSON.parse(fs.readFileSync(path, 'utf8'));
+
+module.exports = {generateTimestamp, pad, startElapsedTime, endElapsedTime, fileToArray, JSONFileToObj};  

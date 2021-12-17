@@ -15,12 +15,13 @@ There are various properties that can be extracted from this, please consult the
 - [ ] Implement [yargs](https://yargs.js.org/) for more complex world generation or queries.
 
 ## Learning
-While I am making this project free and open-source, this is also a learning experience for myself with regards to server-side javascript, HTTP requests, APIs, and many more. The list below represents core ideas that I have worked upon to further my education within this project:
+While I am making this project free and open-source, this is also a learning experience for myself with regards to server-side JavaScript, HTTP requests, APIs, and many more. The list below represents core ideas that I have worked upon to further my education within this project:
 - API Creation / Queries
 - HTTP Requests
 - Express
 - Node
 - JSDoc / Technical Documentation
+- JSON Manipulation
 - State Machines
 - GitHub Copilot*
 
