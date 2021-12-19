@@ -29,7 +29,7 @@ const generateWorld = () => {
             world.push(p);
         }
     }
-    helper.logger.info(world);
+    // helper.logger.info(world);
 }
 
 module.exports = { generateWorld } 

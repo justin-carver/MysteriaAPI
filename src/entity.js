@@ -82,8 +82,8 @@ const entity = () => {
     const entityInit = (verbose = false) => {
         if (verbose) {
             helper.logger.info(`Generating ${entityFirstName} ${entityLastName}, a ${entityClass} ${entityRace} who is ${entityAlignment}...`);
-            helper.logger.info(`${entityFirstName} ${entityLastName} attributes`, entityStats);
-            helper.logger.info(`${entityFirstName} ${entityLastName} flags`, entityFlags);
+            helper.logger.info(`Attributes for ${entityFirstName} ${entityLastName}`, entityStats);
+            helper.logger.info(`Flags for ${entityFirstName} ${entityLastName}`, entityFlags);
         }
     }
 

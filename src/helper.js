@@ -27,19 +27,29 @@ const endElapsedTime = () => {
         let timeDiff = endTime - startTime; // in milliseconds
         timeDiff /= 1000;
         let seconds = timeDiff;
-        return logger.info('Action completed in ', seconds, ' seconds.');
+        return logger.info(`Action completed in ${seconds} seconds.`);
     }
 }
 
-const JSONFileToObj = path => JSON.parse(fs.readFileSync(path, 'utf8'));
+const JSONFileToObj = path =>  {
+    try {
+        return JSON.parse(fs.readFileSync(path, 'utf8'));
+    } catch (e) {
+        logger.error(e);
+    }
+};
 
 // This takes in a normal .txt file, reads line-by-line.
 const fileToArray = (path) => {
     let arr = [];
-    const data = fs.readFileSync(path, 'utf8');
-    data.split(/\r?\n/).forEach( line => {
-        arr.push(line);
-    });
+    try {
+        const data = fs.readFileSync(path, 'utf8');
+        data.split(/\r?\n/).forEach( line => {
+            arr.push(line);
+        });
+    } catch (e) {
+        logger.error(e);
+    }
     return arr;
 }
 

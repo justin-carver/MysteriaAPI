@@ -5,11 +5,9 @@ const entity = require('./entity');
 const helper = require('./helper');
 const world = require('./world');
 const e = require('express');
-
 const version = '0.0.1';
-
-// Most of this should get moved to a configuation file.
-const entityLimit = 100;
+const config = helper.JSONFileToObj('../conf/helper.conf.json');
+const entityLimit = config['entityLimit'];
 let entities = {};
 
 // TODO: This should get moved into dungeon-master.js or entity.js

@@ -27,7 +27,7 @@ While I am making this project free and open-source, this is also a learning exp
 This project has been made with love by Justin Carver. PR's welcome! All licenses by original owners and authors remain in place. The **log.txt** file within the */logs* folder shows a detailed output of the self-hosted server initialization process.
 
 ### Licensing
-All modules, names, locations, and game-specific mechanics were acquired through the [Wizards of the Coast System Reference Document 5 ("SRD5")](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) which is licensed under the Open Gaming License Version 1.0a.
+Some mechanics, modules, names, stat blocks, and various game-specific mechanics were acquired through the [Wizards of the Coast System Reference Document 5 ("SRD5")](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) which is licensed under the Open Gaming License Version 1.0a.
 ___
 ## Ideas
 This is just a small list of different ideas I'd like to pursue with this API:

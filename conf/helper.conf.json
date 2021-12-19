@@ -1,3 +1,4 @@
 {
-    "globalSeed" : "THAC0"
+    "globalSeed" : "THAC0",
+    "entityLimit" : 1000
 }
