@@ -21,7 +21,7 @@ const province = () => {
 
 const generateWorld = () => {
     let provinceSize = 10;
-    console.log(helper.generateTimestamp(), 'Generating world with default parameters...');
+    helper.logger.info('Generating world with default parameters...');
     for (let x = 0; x < provinceSize; x++) {
         for (let y = 0; y < provinceSize; y++) {
             let p = province();
@@ -29,7 +29,7 @@ const generateWorld = () => {
             world.push(p);
         }
     }
-    console.log(world);
+    helper.logger.info(world);
 }
 
 module.exports = { generateWorld } 

@@ -13,6 +13,7 @@ const entity = () => {
     let alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'];
 
     const generateEntityClass = (entityStats) => {
+        // Compare entityStats with
         let possibleClasses = [];
         for (let x in classes) {
             let preferred = classes[x]['primaryStats'];
@@ -80,9 +81,9 @@ const entity = () => {
     // TODO: Uncomment these before release.
     const entityInit = (verbose = false) => {
         if (verbose) {
-            console.log(helper.generateTimestamp(), `Generating ${entityFirstName} ${entityLastName}, a ${entityClass} ${entityRace} who is ${entityAlignment}`);
-            console.log(`${entityFirstName} ${entityLastName} stats:`, entityStats);
-            console.log(`${entityFirstName} ${entityLastName} flags:`, entityFlags);
+            helper.logger.info(`Generating ${entityFirstName} ${entityLastName}, a ${entityClass} ${entityRace} who is ${entityAlignment}...`);
+            helper.logger.info(`${entityFirstName} ${entityLastName} attributes`, entityStats);
+            helper.logger.info(`${entityFirstName} ${entityLastName} flags`, entityFlags);
         }
     }
 

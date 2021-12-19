@@ -5,6 +5,7 @@ const entity = require('./entity');
 const helper = require('./helper');
 const world = require('./world');
 const e = require('express');
+
 const version = '0.0.1';
 
 // Most of this should get moved to a configuation file.
@@ -14,29 +15,27 @@ let entities = {};
 // TODO: This should get moved into dungeon-master.js or entity.js
 const generateNPCs = () => {
     helper.startElapsedTime();
-    console.log(helper.generateTimestamp(), 'Beginning entity generation process...');
+    helper.logger.info('Beginning NPC generation process...');
     let id = 0;
     for (let x = 0; x < entityLimit; x++) {
         let e = entity();
         // Give the entity a unique ID.
         e.entityId = id++;
         entities[e.entityId] = e;
-        console.log(helper.generateTimestamp(), `${e.entityType} Entity: ${e.entityFirstName} ${e.entityLastName} has been generated...`);
+        helper.logger.info(`${e.entityType} Entity: ${e.entityFirstName} ${e.entityLastName} has been generated! 🎊`);
     }
     helper.endElapsedTime();
-    console.log(helper.generateTimestamp(), 'All entities have been generated!');
+    helper.logger.info('All entities have been generated!');
 }
 
 const init = () => {
     helper.initRandom();
+    helper.logger.info('Initializing server...');
     // ------
-    console.log(helper.generateTimestamp(), 'Initializing server...');
-
     generateNPCs();
     world.generateWorld();
-
-    console.log(helper.generateTimestamp(), `MysteriaAPI Server version ${version} initialized!`);
     // ------
+    helper.logger.info(`MysteriaAPI Server version ${version} initialized!`);
 }
 
 // Server initiatlization begins here.
@@ -54,5 +53,5 @@ init();
 // })
 
 // app.listen(port, () => {
-//   console.log(helper.generateTimestamp(), `Server listening at http://localhost:${port}`)
+//   helper.logger.info(`Server listening at http://localhost:${port}`)
 // })

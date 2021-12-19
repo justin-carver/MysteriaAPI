@@ -1,5 +1,19 @@
+const { createLogger, format, transports } = require('winston'); 
 const fs = require('fs');
 const gen = require('random-seed');
+const logLevels = {
+    fatal: 0,
+    error: 1,
+    warn: 2,
+    info: 3,
+    debug: 4,
+    trace: 5,
+};
+const logger = createLogger({
+    levels : logLevels,
+    format: format.combine(format.timestamp(), format.json()),
+    transports: [new transports.Console({})],
+});
 
 let startTime, endTime, rand;
 
@@ -13,24 +27,8 @@ const endElapsedTime = () => {
         let timeDiff = endTime - startTime; // in milliseconds
         timeDiff /= 1000;
         let seconds = timeDiff;
-        return console.log(generateTimestamp(), 'Action completed in ', seconds, ' seconds.');
+        return logger.info('Action completed in ', seconds, ' seconds.');
     }
-}
-
-const generateTimestamp = (brackets = true) => {
-    let currentDate = new Date();
-    if (brackets) {
-        return timestamp = `? [${pad(currentDate.getHours(), 2)}:${pad(currentDate.getMinutes(), 2)}]:`;
-    } else {
-        return timestamp = `${pad(currentDate.getHours(), 2)}:${pad(currentDate.getMinutes(), 2)}`;
-    }
-}
-
-// For timestamp padding
-const pad = (num, size) => {
-    num = num.toString();
-    while (num.length < size) num = "0" + num;
-    return num;
 }
 
 const JSONFileToObj = path => JSON.parse(fs.readFileSync(path, 'utf8'));
@@ -54,4 +52,4 @@ const initRandom = (useGlobalSeed = true) => {
 
 const genRandom = limit => rand(limit);
 
-module.exports = {initRandom, genRandom, generateTimestamp, pad, startElapsedTime, endElapsedTime, fileToArray, JSONFileToObj};  
+module.exports = {logger, initRandom, genRandom, startElapsedTime, endElapsedTime, fileToArray, JSONFileToObj};  

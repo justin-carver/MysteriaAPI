@@ -18,17 +18,20 @@ There are various properties that can be extracted from this, please consult the
 While I am making this project free and open-source, this is also a learning experience for myself with regards to server-side JavaScript, HTTP requests, APIs, and many more. The list below represents core ideas that I have worked upon to further my education within this project:
 - API Creation / Queries
 - HTTP Requests
-- Express
-- Node
+- Express, Node, Winston
 - JSON Manipulation
 - Finite State Machines
 - ~~JSDoc / Technical Documentation~~ (**Soon!**)
 
 ### Contributions
 This project has been made with love by Justin Carver. PR's welcome! All licenses by original owners and authors remain in place. The **log.txt** file within the */logs* folder shows a detailed output of the self-hosted server initialization process.
+
+### Licensing
+All modules, names, locations, and game-specific mechanics were acquired through the [Wizards of the Coast System Reference Document 5 ("SRD5")](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) which is licensed under the Open Gaming License Version 1.0a.
 ___
 ## Ideas
 This is just a small list of different ideas I'd like to pursue with this API:
+ - 
  - Generate front-end to track all server data happening within the 'world'.
  - Create a betting website with fake currency to 'nudge' entity actions, similar to Twitch Plays Pokemon.
  - Run through multiple iterations of the world history, use ML to 'evolve' entity actions to make better choices.
