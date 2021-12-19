@@ -1,0 +1,50 @@
+{
+    "Barbarian" : {
+        "className" : "Barbarian",
+        "primaryStats" : ["Strength", "Constitution"] 
+    },
+    "Bard" : {
+        "className" : "Bard",
+        "primaryStats" : ["Charisma", "Dexterity"]
+    },
+    "Cleric" : {
+        "className" : "Cleric",
+        "primaryStats" : ["Wisdom", "Strength"]
+    },
+    "Druid" : {
+        "className" : "Druid",
+        "primaryStats" : ["Wisdom", "Constitution"]
+    },
+    "Fighter" : {
+        "className" : "Fighter",
+        "primaryStats" : ["Strength", "Dexterity"]
+    },
+    "Monk" : {
+        "className" : "Monk",
+        "primaryStats" : ["Dexterity", "Wisdom"]
+    },
+    "Paladin" : {
+        "className" : "Paladin",
+        "primaryStats" : ["Strength", "Charisma"]
+    },
+    "Ranger" : {
+        "className" : "Ranger",
+        "primaryStats" : ["Dexterity", "Wisdom"]
+    },
+    "Rogue" : {
+        "className" : "Rogue",
+        "primaryStats" : ["Dexterity", "Intelligence"]
+    },
+    "Sorcerer" : {
+        "className" : "Sorcerer",
+        "primaryStats" : ["Charisma", "Constitution"]
+    },
+    "Warlock" : {
+        "className" : "Warlock",
+        "primaryStats" : ["Charisma", "Wisdom"]
+    },
+    "Wizard" : {
+        "className" : "Wizard",
+        "primaryStats" : ["Intelligence", "Constitution"]
+    }
+}

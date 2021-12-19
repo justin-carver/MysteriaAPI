@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "random-name": "^0.1.2",
+    "random-seed": "^0.3.0"
+  }
+}

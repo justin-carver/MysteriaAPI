@@ -1,0 +1,146 @@
+{
+    "acrobatics": {
+        "Name": "Acrobatics",
+        "Ability": "Dexterity",
+        "Modifier": "Dexterity Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "animalHandling": {
+        "Name": "Animal Handling",
+        "Ability": "Wisdom",
+        "Modifier": "Wisdom Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },  
+    "arcana": {
+        "Name": "Arcana",
+        "Ability": "Intelligence",
+        "Modifier": "Intelligence Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "athletics": {
+        "Name": "Athletics",
+        "Ability": "Strength",
+        "Modifier": "Strength Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "deception": {  
+        "Name": "Deception",
+        "Ability": "Charisma",
+        "Modifier": "Charisma Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "gistory": {
+        "Name": "History",
+        "Ability": "Intelligence",
+        "Modifier": "Intelligence Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "insight": {
+        "Name": "Insight",  
+        "Ability": "Wisdom",
+        "Modifier": "Wisdom Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "intimidation": {
+        "Name": "Intimidation",
+        "Ability": "Charisma",
+        "Modifier": "Charisma Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },  
+    "investigation": {
+        "Name": "Investigation",
+        "Ability": "Intelligence",
+        "Modifier": "Intelligence Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "medicine": {
+        "Name": "Medicine",
+        "Ability": "Wisdom",
+        "Modifier": "Wisdom Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "nature": {
+        "Name": "Nature",
+        "Ability": "Intelligence",
+        "Modifier": "Intelligence Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "perception": {
+        "Name": "Perception",
+        "Ability": "Wisdom",
+        "Modifier": "Wisdom Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"    
+    },
+    "performance": {
+        "Name": "Performance",
+        "Ability": "Charisma",
+        "Modifier": "Charisma Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "persuasion": {
+        "Name": "Persuasion",
+        "Ability": "Charisma",
+        "Modifier": "Charisma Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "religion": {
+        "Name": "Religion",
+        "Ability": "Intelligence",
+        "Modifier": "Intelligence Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "sleight of Hand": {
+        "Name": "Sleight of Hand",
+        "Ability": "Dexterity",
+        "Modifier": "Dexterity Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "stealth": {
+        "Name": "Stealth",
+        "Ability": "Dexterity",
+        "Modifier": "Dexterity Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    },
+    "survival": {
+        "Name": "Survival",
+        "Ability": "Wisdom",
+        "Modifier": "Wisdom Modifier",
+        "Proficiency": "Proficiency",
+        "Misc": "Misc",
+        "Total": "Total"
+    }
+}
