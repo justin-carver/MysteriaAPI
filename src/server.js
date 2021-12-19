@@ -11,6 +11,7 @@ const version = '0.0.1';
 const entityLimit = 100;
 let entities = {};
 
+// TODO: This should get moved into dungeon-master.js or entity.js
 const generateNPCs = () => {
     helper.startElapsedTime();
     console.log(helper.generateTimestamp(), 'Beginning entity generation process...');
@@ -40,8 +41,6 @@ const init = () => {
 
 // Server initiatlization begins here.
 init();
-
-console.log(entities[0].entityStatsDescending());
 
 // Express is currently installed,
 // uncomment this to begin the server.

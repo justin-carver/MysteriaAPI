@@ -12,14 +12,6 @@ const entity = () => {
     let races = ['Human', 'Elf', 'Dwarf', 'Orc', 'Gnome', 'Halfing', 'Kobold', 'Goblin', 'Treant', 'Fae', 'Lizardfolk', 'Dragonkin'];
     let alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'];
 
-
-    /**
-     *  Fixing Entity Class Generation:
-     *  3. *Randomly* choose a class that matches the appropriate attributes for efficient class selection.
-     *  4. Automatically assign remaining attributes. (unsorted)
-     */ 
-
-    // TODO: Read the ['primaryStats'] of classes.json and compare it to entityStatsDescending() to choose class.
     const generateEntityClass = (entityStats) => {
         let possibleClasses = [];
         for (let x in classes) {
@@ -30,7 +22,23 @@ const entity = () => {
             }
         }
         if (possibleClasses.length <= 0) {
-            return 'NPC';
+            // If there are no matching preferred classes, gather all classes with the same matching highest primary attribute
+            // then randomly choose another matching class, then make sure the primary attribute is NOT constitution.
+            let randomPrefClasses = [];
+            for (let x in classes) {
+                // explicit JSON.stringfy type-casting for accurate comparisons.
+                if (JSON.stringify(entityStats[0][0]) !== JSON.stringify('Constitution')) {
+                    if (JSON.stringify(classes[x]['primaryStats'][0]) === JSON.stringify(entityStats[0][0])) {
+                        randomPrefClasses.push(classes[x]['className']);
+                    }
+                } else {
+                    // Check the second highest attribute instead if the first one is Constitution
+                    if (JSON.stringify(classes[x]['primaryStats'][0]) === JSON.stringify(entityStats[1][0])) {
+                        randomPrefClasses.push(classes[x]['className']);
+                    }
+                }
+            }
+            return randomPrefClasses[helper.genRandom(randomPrefClasses.length)];
         } else {
             return possibleClasses[helper.genRandom(possibleClasses.length)];
         }
@@ -60,7 +68,7 @@ const entity = () => {
     // TODO: rName is being generated with 'random-name', which does not use 'random-seed'. Fix to resolve unique names.
     entityFirstName = rName.first();
     entityLastName = rName.last();
-    entityClass = generateEntityClass(entityStatsDescending());
+    entityClass = generateEntityClass(entityStatsDescending()); // Needs attributes sorted in descending order.
     entityRace = races[Math.floor(helper.genRandom(races.length))];
     entityCurrentLevel = 1;
     entityType = 'NPC';
