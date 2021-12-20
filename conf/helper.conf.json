@@ -1,4 +1,7 @@
 {
     "globalSeed" : "THAC0",
-    "entityLimit" : 1000
+    "entityLimit" : 10,
+    "server" : {
+        "logLevel" : "debug"
+    }
 }

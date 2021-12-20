@@ -7,7 +7,7 @@ The Mysteria API is the direct connection open-source API for the digital "MMOAP
 This project is the culmination of using Express, Node, and other APIs to generate a seemingly realistic simulated online environment, similar to that of a video-game mmo, that can be requested via API. This API is to go on to serve as the foundation of future projects and challenges to be used with the public, who can generate these requests at will, or locally on their own system with Node.js installed.
 
 ## The Adventure
-There are various properties that can be extracted from this, please consult the list below: 
+There are various properties that can be extracted from this, please consult the list below:
 
 ## Project Needs
 - [ ] Make successful GET requests against server.
@@ -29,6 +29,7 @@ This project has been made with love by Justin Carver. PR's welcome! All license
 ### Licensing
 Some mechanics, modules, names, stat blocks, and various game-specific mechanics were acquired through the [Wizards of the Coast System Reference Document 5 ("SRD5")](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) which is licensed under the Open Gaming License Version 1.0a.
 ___
+
 ## Ideas
 This is just a small list of different ideas I'd like to pursue with this API:
  - 

@@ -12,26 +12,13 @@ const logLevels = {
 const logger = createLogger({
     levels : logLevels,
     format: format.combine(format.timestamp(), format.json()),
-    transports: [new transports.Console({})],
+    transports: [new transports.Console({ level : JSONFileToObj('../conf/helper.conf.json')['server']['logLevel'] })],
 });
 
 let startTime, endTime, rand;
 
-const startElapsedTime = () => {
-    startTime = new Date();
-}
-
-const endElapsedTime = () => {
-    if (startTime != null) {
-        endTime = new Date();
-        let timeDiff = endTime - startTime; // in milliseconds
-        timeDiff /= 1000;
-        let seconds = timeDiff;
-        return logger.info(`Action completed in ${seconds} seconds.`);
-    }
-}
-
-const JSONFileToObj = path =>  {
+// Arrow function wont resolve hoisting issue, standard function will do.
+function JSONFileToObj (path) {
     try {
         return JSON.parse(fs.readFileSync(path, 'utf8'));
     } catch (e) {
@@ -51,6 +38,20 @@ const fileToArray = (path) => {
         logger.error(e);
     }
     return arr;
+}
+
+const startElapsedTime = () => {
+    startTime = new Date();
+}
+
+const endElapsedTime = () => {
+    if (startTime != null) {
+        endTime = new Date();
+        let timeDiff = endTime - startTime; // in milliseconds
+        timeDiff /= 1000;
+        let seconds = timeDiff;
+        return logger.info(`Action completed in ${seconds} seconds.`);
+    }
 }
 
 // Need to initialize random seed in a global scope in server.js's init() to prevent

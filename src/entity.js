@@ -7,13 +7,12 @@ const dm = require('./dungeon-master');
 const entity = () => {
 
     // TODO: Move races to data/races.json, fill out more appropriate information.
-    // TODO: Convert to consts.
-    let classes = helper.JSONFileToObj('../data/classes.json');
-    let races = ['Human', 'Elf', 'Dwarf', 'Orc', 'Gnome', 'Halfing', 'Kobold', 'Goblin', 'Treant', 'Fae', 'Lizardfolk', 'Dragonkin'];
-    let alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'];
+    const classes = helper.JSONFileToObj('../data/classes.json');
+    const races = ['Human', 'Elf', 'Dwarf', 'Orc', 'Gnome', 'Halfing', 'Kobold', 'Goblin', 'Treant', 'Fae', 'Lizardfolk', 'Dragonkin'];
+    const alignment = ['Lawful Good', 'Lawful Neutral', 'Lawful Evil', 'Neutral Good', 'Neutral', 'Neutral Evil', 'Chaotic Good', 'Chaotic Neutral', 'Chaotic Evil'];
 
     const generateEntityClass = (entityStats) => {
-        // Compare entityStats with
+        // Compare entityStats' two highest attributes to the preferred primaryStats of each class in data/classes.json
         let possibleClasses = [];
         for (let x in classes) {
             let preferred = classes[x]['primaryStats'];
@@ -24,7 +23,7 @@ const entity = () => {
         }
         if (possibleClasses.length <= 0) {
             // If there are no matching preferred classes, gather all classes with the same matching highest primary attribute
-            // then randomly choose another matching class, then make sure the primary attribute is NOT constitution.
+            // then randomly choose another matching class, make sure the primary attribute is NOT constitution.
             let randomPrefClasses = [];
             for (let x in classes) {
                 // explicit JSON.stringfy type-casting for accurate comparisons.
@@ -33,7 +32,7 @@ const entity = () => {
                         randomPrefClasses.push(classes[x]['className']);
                     }
                 } else {
-                    // Check the second highest attribute instead if the first one is Constitution
+                    // Check the second highest attribute instead if the first one is 'Constitution'.
                     if (JSON.stringify(classes[x]['primaryStats'][0]) === JSON.stringify(entityStats[1][0])) {
                         randomPrefClasses.push(classes[x]['className']);
                     }
@@ -70,6 +69,7 @@ const entity = () => {
     entityFirstName = rName.first();
     entityLastName = rName.last();
     entityClass = generateEntityClass(entityStatsDescending()); // Needs attributes sorted in descending order.
+    entityHitDie = classes[entityClass]['hitDie'];
     entityRace = races[Math.floor(helper.genRandom(races.length))];
     entityCurrentLevel = 1;
     entityType = 'NPC';
@@ -81,9 +81,9 @@ const entity = () => {
     // TODO: Uncomment these before release.
     const entityInit = (verbose = false) => {
         if (verbose) {
-            helper.logger.info(`Generating ${entityFirstName} ${entityLastName}, a ${entityClass} ${entityRace} who is ${entityAlignment}...`);
-            helper.logger.info(`Attributes for ${entityFirstName} ${entityLastName}`, entityStats);
-            helper.logger.info(`Flags for ${entityFirstName} ${entityLastName}`, entityFlags);
+            helper.logger.debug(`Generating ${entityFirstName} ${entityLastName}, a ${entityClass} ${entityRace} who is ${entityAlignment}...`);
+            helper.logger.debug(`Attributes for ${entityFirstName} ${entityLastName}`, entityStats);
+            helper.logger.debug(`Flags for ${entityFirstName} ${entityLastName}`, entityFlags);
         }
     }
 
@@ -95,6 +95,7 @@ const entity = () => {
         entityFirstName,
         entityLastName,
         entityClass,
+        entityHitDie,
         entityRace,
         entityAlignment,
         entityCurrentLevel,

@@ -1,50 +1,62 @@
 {
     "Barbarian" : {
         "className" : "Barbarian",
-        "primaryStats" : ["Strength", "Constitution"] 
+        "primaryStats" : ["Strength", "Constitution"],
+        "hitDie" : "d12"
     },
     "Bard" : {
         "className" : "Bard",
-        "primaryStats" : ["Charisma", "Dexterity"]
+        "primaryStats" : ["Charisma", "Dexterity"],
+        "hitDie" : "d8"
     },
     "Cleric" : {
         "className" : "Cleric",
-        "primaryStats" : ["Wisdom", "Strength"]
+        "primaryStats" : ["Wisdom", "Strength"],
+        "hitDie" : "d8"
     },
     "Druid" : {
         "className" : "Druid",
-        "primaryStats" : ["Wisdom", "Constitution"]
+        "primaryStats" : ["Wisdom", "Constitution"],
+        "hitDie" : "d8"
     },
     "Fighter" : {
         "className" : "Fighter",
-        "primaryStats" : ["Strength", "Dexterity"]
+        "primaryStats" : ["Strength", "Dexterity"],
+        "hitDie" : "d10"
     },
     "Monk" : {
         "className" : "Monk",
-        "primaryStats" : ["Dexterity", "Wisdom"]
+        "primaryStats" : ["Dexterity", "Wisdom"],
+        "hitDie" : "d8"
     },
     "Paladin" : {
         "className" : "Paladin",
-        "primaryStats" : ["Strength", "Charisma"]
+        "primaryStats" : ["Strength", "Charisma"],
+        "hitDice" : "d10"
     },
     "Ranger" : {
         "className" : "Ranger",
-        "primaryStats" : ["Dexterity", "Wisdom"]
+        "primaryStats" : ["Dexterity", "Wisdom"],
+        "hitDie" : "d10"
     },
     "Rogue" : {
         "className" : "Rogue",
-        "primaryStats" : ["Dexterity", "Intelligence"]
+        "primaryStats" : ["Dexterity", "Intelligence"],
+        "hitDie" : "d8"
     },
     "Sorcerer" : {
         "className" : "Sorcerer",
-        "primaryStats" : ["Charisma", "Constitution"]
+        "primaryStats" : ["Charisma", "Constitution"],
+        "hitDie" : "d6"
     },
     "Warlock" : {
         "className" : "Warlock",
-        "primaryStats" : ["Charisma", "Wisdom"]
+        "primaryStats" : ["Charisma", "Wisdom"],
+        "hitDie" : "d8"
     },
     "Wizard" : {
         "className" : "Wizard",
-        "primaryStats" : ["Intelligence", "Constitution"]
+        "primaryStats" : ["Intelligence", "Constitution"],
+        "hitDie" : "d6"
     }
 }

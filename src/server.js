@@ -2,6 +2,7 @@
 // TODO: Once states are implemented, introduce server tick sytstem.
 
 const entity = require('./entity');
+const yargs = require('yargs');
 const helper = require('./helper');
 const world = require('./world');
 const e = require('express');
@@ -17,7 +18,6 @@ const generateNPCs = () => {
     let id = 0;
     for (let x = 0; x < entityLimit; x++) {
         let e = entity();
-        // Give the entity a unique ID.
         e.entityId = id++;
         entities[e.entityId] = e;
         helper.logger.info(`${e.entityType} Entity: ${e.entityFirstName} ${e.entityLastName} has been generated! 🎊`);
@@ -26,8 +26,20 @@ const generateNPCs = () => {
     helper.logger.info('All entities have been generated!');
 }
 
+
+const initArgs = () => {
+  yargs.command({
+      command : 'pretty',
+      describe : "Outputs server log information in a more readable format.",
+      handler () {
+          helper.info('Yep! We called [pretty!]');
+      }
+  });
+}
+
 const init = () => {
     helper.initRandom();
+    initArgs();
     helper.logger.info('Initializing server...');
     // ------
     generateNPCs();
