@@ -1,67 +1,37 @@
-// TODO: Implement entity states.
-// TODO: Once states are implemented, introduce server tick sytstem.
 
-const entity = require('./entity');
-const yargs = require('yargs');
+// const yargs = require('yargs'); // TODO: Implement yargs at some point.
 const helper = require('./helper');
 const world = require('./world');
+const dm = require('./dungeon-master');
 const e = require('express');
-const version = '0.0.1';
-const config = helper.JSONFileToObj('../conf/helper.conf.json');
-const entityLimit = config['entityLimit'];
+
+const config = require('../conf/helper.conf.json');
+const version = config['server']['version'];
+
+// TODO: Implement entity states.
+// TODO: Once states are implemented, introduce server tick sytstem.
 let entities = {};
-
-// TODO: This should get moved into dungeon-master.js or entity.js
-const generateNPCs = () => {
-    helper.startElapsedTime();
-    helper.logger.info('Beginning NPC generation process...');
-    let id = 0;
-    for (let x = 0; x < entityLimit; x++) {
-        let e = entity();
-        e.entityId = id++;
-        entities[e.entityId] = e;
-        helper.logger.info(`${e.entityType} Entity: ${e.entityFirstName} ${e.entityLastName} has been generated! 🎊`);
-    }
-    helper.endElapsedTime();
-    helper.logger.info('All entities have been generated!');
-}
-
-
-const initArgs = () => {
-  yargs.command({
-      command : 'pretty',
-      describe : "Outputs server log information in a more readable format.",
-      handler () {
-          helper.info('Yep! We called [pretty!]');
-      }
-  });
-}
 
 const init = () => {
     helper.initRandom();
-    initArgs();
     helper.logger.info('Initializing server...');
-    // ------
-    generateNPCs();
+    // ------ Core Init
+    entities = dm.generateEntities();
     world.generateWorld();
-    // ------
-    helper.logger.info(`MysteriaAPI Server version ${version} initialized!`);
+    // ------ End Core Init
+    helper.logger.info(`MysteriaAPI server version ${version} initialized!`);
 }
 
-// Server initiatlization begins here.
 init();
 
-// Express is currently installed,
-// uncomment this to begin the server.
+const express = require('express')
+const app = express()
+const port = 3000
 
-// const express = require('express')
-// const app = express()
-// const port = 3000
+app.get('/entities', (req, res) => {
+    res.send(entities)
+})
 
-// app.get('/entities', (req, res) => {
-//   res.send(entities)
-// })
-
-// app.listen(port, () => {
-//   helper.logger.info(`Server listening at http://localhost:${port}`)
-// })
+app.listen(port, () => {
+    helper.logger.info(`Server listening at http://localhost:${port}`)
+})

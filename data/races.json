@@ -1,0 +1,15 @@
+{
+    "Elf" : {
+        "averageAge" : 350,
+        "averageHeight" : 1.8,
+        "averageWeight" : 80,
+        "speed" : 30,
+        "abilityScoreMods" : {"Dexterity" : 2},
+        "traits" : ["Darkvision", "Keen Senses", "Fey Ancestry", "Trance", "Cantrip", "Extra Language"],
+        "subrace" : {
+            "High Elf": {
+                
+            }
+        }
+    }
+}

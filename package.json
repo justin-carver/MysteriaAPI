@@ -5,5 +5,8 @@
     "random-seed": "^0.3.0",
     "winston": "^3.3.3",
     "yargs": "^17.3.0"
+  },
+  "scripts" : {
+    "start": "node src/server.js"
   }
 }

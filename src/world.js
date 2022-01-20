@@ -1,8 +1,6 @@
 const helper = require('./helper');
-
 const world = [];
-
-let provinceNames = helper.JSONFileToObj('../data/province.json')['generators']['prefix'];
+let provinceNames = require('../data/provinces.json')['generators']['prefix'];
 
 // TODO: Rewrite province generation using data/province.json
 const province = () => {

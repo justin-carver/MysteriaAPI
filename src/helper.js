@@ -1,7 +1,13 @@
 const { createLogger, format, transports } = require('winston'); 
+const config = require('../conf/helper.conf.json');
 const fs = require('fs');
 const gen = require('random-seed');
+
+// TODO: Find a way to pass in format.prettyPrint() into format.combine() dynamically.
+// TODO: Logger will need to produce output asynchronously. (https://nodejs.org/api/async_hooks.html#async_hooks_printing_in_asynchooks_callbacks)
+
 const logLevels = {
+    headless : -1, // May increase compute time at cost of no output logs.
     fatal: 0,
     error: 1,
     warn: 2,
@@ -12,33 +18,10 @@ const logLevels = {
 const logger = createLogger({
     levels : logLevels,
     format: format.combine(format.timestamp(), format.json()),
-    transports: [new transports.Console({ level : JSONFileToObj('../conf/helper.conf.json')['server']['logLevel'] })],
+    transports: [new transports.Console({ level : config['server']['logLevel'] })],
 });
 
-let startTime, endTime, rand;
-
-// Arrow function wont resolve hoisting issue, standard function will do.
-function JSONFileToObj (path) {
-    try {
-        return JSON.parse(fs.readFileSync(path, 'utf8'));
-    } catch (e) {
-        logger.error(e);
-    }
-};
-
-// This takes in a normal .txt file, reads line-by-line.
-const fileToArray = (path) => {
-    let arr = [];
-    try {
-        const data = fs.readFileSync(path, 'utf8');
-        data.split(/\r?\n/).forEach( line => {
-            arr.push(line);
-        });
-    } catch (e) {
-        logger.error(e);
-    }
-    return arr;
-}
+let startTime, endTime, rand = () => {}
 
 const startElapsedTime = () => {
     startTime = new Date();
@@ -57,10 +40,10 @@ const endElapsedTime = () => {
 // Need to initialize random seed in a global scope in server.js's init() to prevent
 // reoccurring numbers.
 const initRandom = (useGlobalSeed = true) => { 
-    if (useGlobalSeed) { rand = gen.create(JSONFileToObj('../conf/helper.conf.json')['globalSeed']); } 
+    if (useGlobalSeed) { rand = gen.create(config['globalSeed']); } 
     else { rand = gen.create(); }
 }
 
 const genRandom = limit => rand(limit);
 
-module.exports = {logger, initRandom, genRandom, startElapsedTime, endElapsedTime, fileToArray, JSONFileToObj};  
+module.exports = {logger, initRandom, genRandom, startElapsedTime, endElapsedTime};  

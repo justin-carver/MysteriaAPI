@@ -1,8 +1,26 @@
-// TODO: Implement [`npm install random-seed`](https://www.npmjs.com/package/random-seed) for all randomness, add seeding.
+const helper = require('./helper.js');
+const config = require('../conf/helper.conf.json');
+const entity = require('./entity');
+const entityLimit = config['entityLimit'];
 
-const helper = require('./helper');
+module.exports.generateEntities = () => {
+    helper.startElapsedTime();
+    helper.logger.info('Beginning NPC generation process...');
 
-const rollDice = (dice) => {
+    let entities = {};
+    let id = 0;
+    for (let x = 0; x < entityLimit; x++) {
+        let e = entity.generateEntity();
+        e.entityId = id++;
+        entities[e.entityId] = e;
+        helper.logger.info(`${e.type} Entity: ${e.firstName} ${e.lastName} has been generated! 🎊`);
+    }
+    helper.endElapsedTime();
+    helper.logger.info('All entities have been generated!');
+    return entities;
+}
+
+module.exports.rollDice = (dice) => {
     dice += '';
     const diceArray = dice.split('d');
     const diceCount = diceArray[0];
@@ -21,5 +39,3 @@ const rollDice = (dice) => {
         rollsHighestRemoved : rolls.shift()
     };
 }
-
-module.exports = {rollDice};

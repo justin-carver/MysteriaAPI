@@ -18,6 +18,7 @@ There are various properties that can be extracted from this, please consult the
 While I am making this project free and open-source, this is also a learning experience for myself with regards to server-side JavaScript, HTTP requests, APIs, and many more. The list below represents core ideas that I have worked upon to further my education within this project:
 - API Creation / Queries
 - HTTP Requests
+- Routing
 - Express, Node, Winston
 - JSON Manipulation
 - Finite State Machines
@@ -32,7 +33,7 @@ ___
 
 ## Ideas
 This is just a small list of different ideas I'd like to pursue with this API:
- - 
+ - Run this through a SIEM or log aggregator, like Splunk, to analyze updates in real-time.
  - Generate front-end to track all server data happening within the 'world'.
  - Create a betting website with fake currency to 'nudge' entity actions, similar to Twitch Plays Pokemon.
  - Run through multiple iterations of the world history, use ML to 'evolve' entity actions to make better choices.
